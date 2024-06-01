@@ -1,13 +1,13 @@
-﻿﻿@using BookStore.ViewModel
-@model CategoryVM
+﻿@using BookStore.ViewModel
+@model AuthorFormVM
 @section Title {
-        Categories
+        Author
 }
 @section SubTitle {
     @(Model?.Id == null ? "Create" : "Edit")
 }
 
-<form asp-controller="Categories">
+<form asp-controller="Authors">
     <div class="card-body">
 
         <div class="form-group">
@@ -20,3 +20,4 @@
         <button type="submit" class="btn btn-primary"> @(Model?.Id == null ? "Add" : "update")</button>
     </div>
 </form>
+

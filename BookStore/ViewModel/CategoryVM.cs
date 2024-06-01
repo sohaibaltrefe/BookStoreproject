@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel.DataAnnotations;
 
 namespace BookStore.ViewModel
 {
@@ -7,7 +8,7 @@ namespace BookStore.ViewModel
         public int Id { get; set; }
         [Required(ErrorMessage ="pleaz enter name")]
         [MaxLength(50, ErrorMessage = "50")]
-
+       // [Remote("CheakName",null,ErrorMessage ="exxxxxxx")]
         public string Name { get; set; } = null!;
 
         public DateTime CreatedOn { get; set; } = DateTime.Now;

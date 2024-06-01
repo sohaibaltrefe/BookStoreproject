@@ -1,0 +1,51 @@
+﻿@using BookStore.ViewModel
+@model BookVM
+
+@section Title {
+    Book
+}
+@section subTitle {
+    Details
+}
+
+<div class="card-body">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th style="width: 10px">#</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Publisher</th>
+                <th>PublishData</th>
+                <th>Categories</th>
+                <th>Description</th>
+                <th>UpdateOn</th>
+
+                <th>Image</th>
+
+                <th style="width: 50px">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Model.Id</td>
+                <td>@Model.Title</td>
+                <td>@Model.Author</td>
+                <td>@Model.Publisher</td>
+                <td>@Model.PublishData</td>
+               
+                <td>@string.Join(", ", Model.Categories)</td>
+                <td>@Model.Description</td>
+
+                <td>@Model.UpdateOn</td>
+                <td><img src="~/img/books/@Model.ImageUrl" alt="No image" width="100px" /></td>
+                <td>
+                    <a class="btn btn-sm btn-primary disabled" asp-controller="Books" asp-action="Edit" asp-route-id="@Model.Id">
+                        <i class="fas fa-edit"></i> Edit
+                    </a>
+                   
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

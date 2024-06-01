@@ -1,7 +1,7 @@
-﻿﻿@using BookStore.ViewModel
-@model CategoryVM
+﻿@using BookStore.ViewModel
+@model AuthorVM
 @section Title {
-    Categories
+    AUTHOR
 }
 @section subTitle {
     Details
@@ -29,9 +29,10 @@
                 <td>@Model.UpdateOn</td>
 
                 <td>
-                    <a class=" btn btn-sm   btn-primary" asp-controller="Categories" asp-action="Edit" asp-route-id="@Model.Id">
+                    <a class=" btn btn-sm   btn-primary" asp-controller="Authors" asp-action="Edit" asp-route-id="@Model.Id">
                         <i class="fas fa-edit   "></i>Edit
                     </a>
+
 
 
                 </td>
