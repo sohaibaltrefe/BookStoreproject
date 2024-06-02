@@ -104,7 +104,10 @@ namespace BookStore.Controllers
         {
             var category = context.categories.Find(id);
 
-            if (category is null) { return NotFound(); }
+            if (category is null) { 
+                return NotFound(); 
+            }
+
 
             
             context.categories.Remove(category);
