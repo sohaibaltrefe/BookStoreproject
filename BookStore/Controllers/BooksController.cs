@@ -112,8 +112,8 @@ namespace BookStore.Controllers
             var book = context.Books
                 .Include(BookAut => BookAut.Author)
                 .Include(Bookcate => Bookcate.Categories)
-                    .ThenInclude(Bookcate => Bookcate.category) // Adjust the property names according to your model
-                .First(b => b.Id == id); // Use FirstOrDefault instead of Find
+                    .ThenInclude(Bookcate => Bookcate.category)
+                .First(b => b.Id == id);
 
             if (book is null)
             {
@@ -124,8 +124,8 @@ namespace BookStore.Controllers
             {
                 Id = book.Id,   
                 Title = book.Title,
-                Author = book.Author.Name, // Use null-conditional operator
-                Publisher = book.Publisher, // Assuming Publisher has a Name property
+                Author = book.Author.Name, 
+                Publisher = book.Publisher, 
                 PublishData = book.PublishData,
                 Description = book.Description,
                 ImageUrl = book.ImageUrl,
