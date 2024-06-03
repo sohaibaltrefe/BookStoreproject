@@ -73,10 +73,10 @@ namespace BookStore.Controllers
                 return View(viewModel);
             }
 
-            var existingAuthor = context.Books
+            var existingBook = context.Books
                .FirstOrDefault(t => t.Title == viewModel.Title );
 
-            if (existingAuthor != null)
+            if (existingBook != null)
             {
                 ModelState.AddModelError("Title", " no create book name already exists");
                 return View("Create", viewModel);
