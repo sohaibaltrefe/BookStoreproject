@@ -1,12 +1,14 @@
 ﻿using BookStore.Data;
 using BookStore.Models;
 using BookStore.ViewModel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
 namespace BookStore.Controllers
-{
+{        [Authorize]
+
     public class BooksController : Controller
     {
 
@@ -18,7 +20,6 @@ namespace BookStore.Controllers
             this.context = context;
             this.webHostEnvironment = webHostEnvironment;
         }
-
         public IActionResult Index()
         {
             var books = context.Books.Include(book=>book.Author).Include(book => book.Categories).ThenInclude(book => book.category).ToList();
@@ -87,10 +88,10 @@ namespace BookStore.Controllers
             {
                 imageName = Path.GetFileName(viewModel.ImageUrl.FileName);
                 var path = Path.Combine($"{webHostEnvironment.WebRootPath}/img/books", imageName);
-                using (var stream = System.IO.File.Create(path))
-                {
+                var stream = System.IO.File.Create(path);
+               
                     viewModel.ImageUrl.CopyTo(stream);
-                }
+                
             }
 
             var book = new Book
